@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:colorpicker="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="200dp">
+
+            <!--<ImageView-->
+                <!--android:id="@+id/iv"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" />-->
+
+            <com.stella.cats.DragView
+                android:id="@+id/drag_view"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:background="#00000000" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_text_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/flexbox_layout"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.stella.cats.SlideColorPicker
+                android:id="@+id/color_picker_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                colorpicker:borderColor="@android:color/black"
+                colorpicker:borderWidth="2dp"
+                colorpicker:colors="@array/default_colors"/>
+
+            <RadioGroup
+                android:id="@+id/crisperding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/no_crisperding"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:checked="true"
+                    android:text="无勾边"/>
+
+                <RadioButton
+                    android:id="@+id/black_crisperding"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="黑色勾边"/>
+
+                <RadioButton
+                    android:id="@+id/white_crisperding"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="白色勾边"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_background_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/flexbox_layout"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.stella.cats.SlideColorPicker
+                android:id="@+id/color_picker_background"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                colorpicker:borderColor="@android:color/black"
+                colorpicker:borderWidth="2dp"
+                colorpicker:colors="@array/default_colors"/>
+
+            <CheckBox
+                android:id="@+id/is_transparency"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:text="透明"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flexbox_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.stella.cats.OptionView
+                android:id="@+id/layout_text_background"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:so_text="文字背景色"
+                app:so_icon="@drawable/text_back"
+                android:layout_weight="1" />
+
+            <com.stella.cats.OptionView
+                android:id="@+id/layout_text_color"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:so_text="文字颜色"
+                app:so_ic_back="@color/black"
+                app:so_icon="@drawable/text_color"
+                android:layout_weight="1" />
+
+            <com.stella.cats.OptionView
+                android:id="@+id/layout_add_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:so_text="增加文字"
+                app:so_icon="@drawable/add_text"
+                android:layout_weight="1" />
+
+            <com.stella.cats.OptionView
+                android:id="@+id/layout_find_cat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:so_text="换个图"
+                app:so_icon="@drawable/exchange"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
